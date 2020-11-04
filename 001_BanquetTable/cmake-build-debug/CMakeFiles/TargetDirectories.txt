@@ -1,0 +1,3 @@
+C:/Users/Ana/ClionProjects/Module_017/001_BanquetTable/cmake-build-debug/CMakeFiles/001_BanquetTable.dir
+C:/Users/Ana/ClionProjects/Module_017/001_BanquetTable/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ana/ClionProjects/Module_017/001_BanquetTable/cmake-build-debug/CMakeFiles/rebuild_cache.dir
