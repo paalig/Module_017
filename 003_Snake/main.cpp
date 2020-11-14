@@ -15,6 +15,18 @@
  */
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    int snake[5][5];
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            snake[i][j] = j + i * 5 + (i % 2) * (2 - j) * 2;
+
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            std::cout << snake[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
 }

@@ -4,3 +4,5 @@
 # Datasource local storage ignored files
 /../../../../../../../:\Users\Ana\ClionProjects\Module_017\003_Snake\.idea/dataSources/
 /dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
