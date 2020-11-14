@@ -1,0 +1,3 @@
+C:/Users/Ana/ClionProjects/Module_017/004_MatrixEquality/cmake-build-debug/CMakeFiles/004_MatrixEquality.dir
+C:/Users/Ana/ClionProjects/Module_017/004_MatrixEquality/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ana/ClionProjects/Module_017/004_MatrixEquality/cmake-build-debug/CMakeFiles/rebuild_cache.dir
