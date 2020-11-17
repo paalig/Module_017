@@ -27,20 +27,13 @@ float inputMatrix(float arr[4][4]) {
     return arr[4][4];
 }
 
-void printMatrix(float arr[4][4]) {
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            std::cout << arr[i][j] << "\t";
-        }
-        std::cout << std::endl;
-    }
-}
-
-float inputVector(std::vector<float> vec) {
-    for (int i = 0; i < vec.size(); i++) {
+std::vector<float> inputVector(int a) {
+    std::vector<float> v(a);
+    for (int i = 0; i < a; i++) {
         std::cout << "Input value: ";
-        std::cin >> vec[i];
+        std::cin >> v[i];
     }
+    return v;
 }
 
 void printVector(std::vector<float> vec) {
@@ -49,10 +42,29 @@ void printVector(std::vector<float> vec) {
     }
 }
 
+std::vector<float> multiplyVectorMatrix(std::vector<float> vec, float matrix[4][4]) {
+    for (int j = 0; j < vec.size(); j++) {
+        float sum = 0;
+        for (int i = 0; i < 4; i++) {
+            sum += (vec[j] * matrix[i][j]);
+        }
+        vec[j] = sum;
+    }
+    return vec;
+}
+
 int main() {
-    std::vector<float> v(4);
+    int vectorSize = 4;
     float m[4][4];
 
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    std::cout << "Input vector: " << std::endl;
+    std::vector<float> v = inputVector(vectorSize);
+    std::cout << std::endl;
+
+    std::cout << "Input matrix: " << std::endl;
+    inputMatrix(m);
+    std::cout << std::endl;
+
+    v = multiplyVectorMatrix(v, m);
+    printVector(v);
 }
