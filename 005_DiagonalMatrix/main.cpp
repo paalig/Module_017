@@ -10,7 +10,47 @@
  * Результат требуется вывести в консоль для проверки. Ищите именно оптимальное решение - оно довольно простое.
  */
 
+int inputMatrix(int arr[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            std::cout << "Input value: ";
+            std::cin >> arr[i][j];
+        }
+    }
+    return arr[4][4];
+}
+
+int toDiagonalMatrix(int arr[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (i != j) {
+                arr[i][j] = 0;
+            } else {continue;}
+        }
+    }
+    return arr[4][4];
+}
+
+void printMatrix(int arr[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            std::cout << arr[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
+}
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    int arr1[4][4];
+
+    std::cout << "Input your matrix:" << std::endl;
+    std::cout << std::endl;
+    inputMatrix(arr1);
+    std::cout << std::endl;
+    std::cout << "Rebuild to diagonal matrix..." << std::endl;
+    toDiagonalMatrix(arr1);
+    std::cout << std::endl;
+    std::cout << "Result:" << std::endl;
+    printMatrix(arr1);
+
 }
