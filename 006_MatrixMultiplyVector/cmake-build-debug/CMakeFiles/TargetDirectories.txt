@@ -1,0 +1,3 @@
+C:/Users/Ana/ClionProjects/Module_017/006_MatrixMultiplyVector/cmake-build-debug/CMakeFiles/006_MatrixMultiplyVector.dir
+C:/Users/Ana/ClionProjects/Module_017/006_MatrixMultiplyVector/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ana/ClionProjects/Module_017/006_MatrixMultiplyVector/cmake-build-debug/CMakeFiles/rebuild_cache.dir
