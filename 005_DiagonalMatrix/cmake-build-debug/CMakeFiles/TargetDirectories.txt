@@ -1,0 +1,3 @@
+C:/Users/Ana/ClionProjects/Module_017/005_DiagonalMatrix/cmake-build-debug/CMakeFiles/005_DiagonalMatrix.dir
+C:/Users/Ana/ClionProjects/Module_017/005_DiagonalMatrix/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ana/ClionProjects/Module_017/005_DiagonalMatrix/cmake-build-debug/CMakeFiles/rebuild_cache.dir
