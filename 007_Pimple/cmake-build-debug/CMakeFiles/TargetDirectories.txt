@@ -1,0 +1,3 @@
+C:/Users/Ana/ClionProjects/Module_017/007_Pimple/cmake-build-debug/CMakeFiles/007_Pimple.dir
+C:/Users/Ana/ClionProjects/Module_017/007_Pimple/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ana/ClionProjects/Module_017/007_Pimple/cmake-build-debug/CMakeFiles/rebuild_cache.dir
