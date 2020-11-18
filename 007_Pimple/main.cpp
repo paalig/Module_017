@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 /*
  * После посылки из Китая осталась спец. плёнка для бережной перевозки груза - пупырка.
@@ -21,8 +22,76 @@
  * В принципе, вы можете подсчитать окончание в самой функции по отображению пузырьков плёнки,
  *  т.к. она выполняется после каждого лопанья.
  */
+int init(bool arr[12][12]) {
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            arr[i][j] = true;
+        }
+    }
+    return arr[12][12];
+}
+
+void printPimple(bool arr[12][12]) {
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            if (arr[i][j] == true) {
+                std::cout << "o";
+            } else {
+                std::cout << "x";
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+int action(bool arr[12][12], int a, int b, int c, int d) {
+    for (int i = std::min(a, c); i <= std::max(a, c); i++) {
+        for (int j = std::min(b, d); j <= std::max(b, d); j++) {
+            if (arr[i][j] == true) {
+                arr[i][j] = false;
+                std::cout << "Pop!" << std::endl;
+            } else {continue;}
+        }
+    }
+    return arr[12][12];
+}
+
+bool checkPimple(bool arr[12][12]) {
+    bool check = false;
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            if (arr[i][j] == true) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {break;}
+    }
+    return check;
+}
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    bool pimple[12][12];
+    init(pimple);
+    printPimple(pimple);
+    int a, b, c, d;
+
+    while (checkPimple(pimple)) {
+        std::cout << "Input start coordinates: ";
+        std::cin >> a >> b;
+        std::cout << "Input end coordinates: ";
+        std::cin >> c >> d;
+        while (a > 11 || b > 11 || c > 11 || d > 11 ||
+               a < 0 || b < 0 || c < 0 || d < 0) {
+            std::cout << "Invalid values. Try again!" << std::endl;
+            std::cout << "Input start coordinates: ";
+            std::cin >> a >> b;
+            std::cout << "Input end coordinates: ";
+            std::cin >> c >> d;
+        }
+        action(pimple, a, b, c, d);
+        printPimple(pimple);
+        std::cout << std::endl;
+    }
+    std::cout << "Game is finished!";
 }
