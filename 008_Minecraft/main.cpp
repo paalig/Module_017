@@ -14,7 +14,52 @@
  * Уровень среза от 0 до 9 включительно - также задаётся в стандартном вводе.
  */
 
+int InitSquare(int arr[5][5][1]) {
+    int b;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            for (int k = 0; k < 1; k++) {
+                std::cout << "Input the height (from 0 to 9):";
+                std::cin >> b;
+                while (b < 0 || b > 9) {
+                    std::cout << "Not correct value. Try again:";
+                    std::cin >> b;
+                }
+                arr[i][j][k] = b;
+            }
+        }
+    }
+    return arr[5][5][1];
+}
+
+void PrintLevel(int arr[5][5][1], int a) {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            for (int k = 0; k < 1; k++) {
+                if ((arr[i][j][k] - a) >= 0) {
+                    std::cout << "1";
+                } else {
+                    std::cout << "0";
+                }
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    int level;
+    int square[5][5][1];
+
+    std::cout << "Input level number to print:";
+    std::cin >> level;
+    while (level < 0 || level > 9) {
+        std::cout << "Wrong level number. Try again:";
+        std::cin >> level;
+    }
+
+    InitSquare(square);
+    std::cout << std::endl;
+    std::cout << "Result:" << std::endl;
+    PrintLevel(square, level);
 }
