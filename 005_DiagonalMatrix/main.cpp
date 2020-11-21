@@ -25,7 +25,7 @@ int toDiagonalMatrix(int arr[4][4]) {
         for (int j = 0; j < 4; j++) {
             if (i != j) {
                 arr[i][j] = 0;
-            } else {continue;}
+            }
         }
     }
     return arr[4][4];
