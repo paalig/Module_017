@@ -34,7 +34,7 @@ int init(bool arr[12][12]) {
 void printPimple(bool arr[12][12]) {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
-            if (arr[i][j] == true) {
+            if (arr[i][j]) {
                 std::cout << "o";
             } else {
                 std::cout << "x";
@@ -47,27 +47,24 @@ void printPimple(bool arr[12][12]) {
 int action(bool arr[12][12], int a, int b, int c, int d) {
     for (int i = std::min(a, c); i <= std::max(a, c); i++) {
         for (int j = std::min(b, d); j <= std::max(b, d); j++) {
-            if (arr[i][j] == true) {
+            if (arr[i][j]) {
                 arr[i][j] = false;
                 std::cout << "Pop!" << std::endl;
-            } else {continue;}
+            }
         }
     }
     return arr[12][12];
 }
 
 bool checkPimple(bool arr[12][12]) {
-    bool check = false;
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
-            if (arr[i][j] == true) {
-                check = true;
-                break;
+            if (arr[i][j]) {
+                return true;
             }
         }
-        if (check) {break;}
     }
-    return check;
+    return false;
 }
 
 int main() {
