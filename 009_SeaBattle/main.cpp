@@ -27,7 +27,7 @@
 bool CheckLocation(char field[10][10], int start1, int end1, int start2, int end2) {
     for (int i = std::min(start1, start2); i <= std::max(start1, start2); i++) {
         for (int j = std::min(end1, end2); j <= std::max(end1, end2); j++) {
-            if (field[i][j] == ' ') {
+            if (field[i][j] == '@') {
                 return false;
             }
         }
@@ -36,18 +36,11 @@ bool CheckLocation(char field[10][10], int start1, int end1, int start2, int end
 }
 
 bool CheckLocationTiny(char field[10][10], int start1, int end1) {
-    if (field[start1][end1] == ' ') {
-        return false;
-    }
-    return true;
+    return (field[start1][end1] != '@');
 }
 
 bool CheckCoordinate(int a) {
-    if (a > 9 || a < 0) {
-        return false;
-    } else {
-        return true;
-    }
+    return (a >= 0 && a <= 9);
 }
 
 char Arrange(char arr[10][10], int count, std::string type, int length) {
@@ -71,7 +64,7 @@ char Arrange(char arr[10][10], int count, std::string type, int length) {
         if (CheckLocation(arr, start1, end1, start2, end2)) {
             for (int i = std::min(start1, start2); i <= std::max(start1, start2); i++) {
                 for (int j = std::min(end1, end2); j <= std::max(end1, end2); j++) {
-                    arr[i][j] = ' ';
+                    arr[i][j] = '@';
                 }
             }
             count--;
@@ -100,7 +93,7 @@ char InstallShips(char arr[10][10]) {
             std::cin >> start1 >> end1;
         }
         if (CheckLocationTiny(arr, start1, end1)) {
-            arr[start1][end1] = ' ';
+            arr[start1][end1] = '@';
             tinyCount--;
         } else {
             std::cout << "Position of the ship is already filled. Try again" << std::endl;
@@ -131,7 +124,7 @@ char InitField(char arr[10][10]) {
 bool CheckWin(char arr[10][10]) {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            if (arr[i][j] == ' ') {
+            if (arr[i][j] == '@') {
                 return true;
             }
         }
@@ -140,10 +133,7 @@ bool CheckWin(char arr[10][10]) {
 }
 
 bool Shot(char arr[10][10], int a, int b) {
-    if (arr[a][b] == ' ') {
-        return true;
-    }
-    return false;
+    return (arr[a][b] == '@' || arr[a][b] == ' ');
 }
 
 std::string ChangePlayer(std::string player) {
@@ -158,7 +148,11 @@ std::string ChangePlayer(std::string player) {
 void PrintField(char arr[10][10]) {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            std::cout << arr[i][j];
+            if (arr[i][j] == '@') {
+                std::cout << '0';
+            } else {
+                std::cout << arr[i][j];
+            }
         }
         std::cout << std::endl;
     }
@@ -167,13 +161,9 @@ void PrintField(char arr[10][10]) {
 int main() {
     char firstPlayer[10][10];
     char secondPlayer[10][10];
-    char firstField[10][10];
-    char secondField[10][10];
 
     InitField(firstPlayer);
     InitField(secondPlayer);
-    InitField(firstField);
-    InitField(secondField);
 
     std::cout << "Player 1:" << std::endl;
     InstallShips(firstPlayer);
@@ -197,25 +187,23 @@ int main() {
         }
         if (currentPlayer == "Player 1") {
             if (Shot(secondPlayer, a, b)) {
-                secondPlayer[a][b] = '0';
-                secondField[a][b] = ' ';
+                secondPlayer[a][b] = ' ';
                 std::cout << "Hit!" << std::endl;
             } else {
-                secondField[a][b] = '*';
+                secondPlayer[a][b] = '*';
                 std::cout << "Past!" << std::endl;
             }
-            PrintField(secondField);
+            PrintField(secondPlayer);
             std::cout << std::endl;
         } else {
             if (Shot(firstPlayer, a, b)) {
-                firstPlayer[a][b] = '0';
-                firstField[a][b] = ' ';
+                firstPlayer[a][b] = ' ';
                 std::cout << "Hit!" << std::endl;
             } else {
-                firstField[a][b] = '*';
+                firstPlayer[a][b] = '*';
                 std::cout << "Past!" << std::endl;
             }
-            PrintField(firstField);
+            PrintField(firstPlayer);
             std::cout << std::endl;
         }
         currentPlayer = ChangePlayer(currentPlayer);
