@@ -43,7 +43,7 @@ bool CheckCoordinate(int a) {
     return (a >= 0 && a <= 9);
 }
 
-char Arrange(char arr[10][10], int count, std::string type, int length) {
+void Arrange(char arr[10][10], int count, std::string type, int length) {
     int start1, end1, start2, end2;
 
     while (count > 0) {
@@ -72,10 +72,9 @@ char Arrange(char arr[10][10], int count, std::string type, int length) {
             std::cout << "Position of the ship is already filled. Try again" << std::endl;
         }
     }
-    return arr[10][10];
 }
 
-char InstallShips(char arr[10][10]) {
+void InstallShips(char arr[10][10]) {
 
     int tinyCount = 4;
     int smallCount = 3;
@@ -109,16 +108,14 @@ char InstallShips(char arr[10][10]) {
     std::cout << "Install huge ships:" << std::endl;
     Arrange(arr, hugeCount, "huge", 4);
     std::cout << std::endl;
-    return arr[10][10];
 }
 
-char InitField(char arr[10][10]) {
+void InitField(char arr[10][10]) {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             arr[i][j] = '0';
         }
     }
-    return arr[10][10];
 }
 
 bool CheckWin(char arr[10][10]) {
@@ -188,20 +185,20 @@ int main() {
         if (currentPlayer == "Player 1") {
             if (Shot(secondPlayer, a, b)) {
                 secondPlayer[a][b] = ' ';
-                std::cout << "Hit!" << std::endl;
+                std::cout << "Damage!" << std::endl;
             } else {
                 secondPlayer[a][b] = '*';
-                std::cout << "Past!" << std::endl;
+                std::cout << "Miss!" << std::endl;
             }
             PrintField(secondPlayer);
             std::cout << std::endl;
         } else {
             if (Shot(firstPlayer, a, b)) {
                 firstPlayer[a][b] = ' ';
-                std::cout << "Hit!" << std::endl;
+                std::cout << "Damage!" << std::endl;
             } else {
                 firstPlayer[a][b] = '*';
-                std::cout << "Past!" << std::endl;
+                std::cout << "Miss!" << std::endl;
             }
             PrintField(firstPlayer);
             std::cout << std::endl;
